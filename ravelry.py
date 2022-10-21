@@ -1,6 +1,6 @@
 import requests, json, random, string, time, os, sys
 from colorama import Fore, Back, Style
-from utils import tempmail
+import tempmail
 
 def main():
     email, password = tempmail.create_account("spacehotline.com")
