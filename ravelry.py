@@ -3,7 +3,7 @@ from colorama import Fore, Back, Style
 import tempmail
 
 def main():
-    email, password = tempmail.create_account("spacehotline.com")
+    email, password = tempmail.create_account("karenkey.com")
     session = requests.Session()
     username = ''.join(random.choice(string.ascii_lowercase) for i in range(10))
     ravelpassword = ("").join(random.choices(string.ascii_letters + string.digits, k = 8))
