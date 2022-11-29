@@ -2,6 +2,8 @@ import requests, json, random, string, time, os, sys
 from colorama import Fore, Back, Style
 import tempmail
 
+count = 0
+
 def main():
     email, password = tempmail.create_account("karenkey.com")
     session = requests.Session()
@@ -49,8 +51,13 @@ def main():
         print(f"{Fore.GREEN}[+]{Fore.RESET} Account Created - " + email + ":" + ravelpassword + " - " + username)
         with open("ravelry.txt", "a") as f:
             f.write(email + ":" + ravelpassword + ":" + username + "\n")
-        print("sending message")
-        x = session.post("https://www.ravelry.com/messages", headers=headers, data={"authenticity_token": authenticity_token, "message[subject]": "test", "message[body]": "test", "message[recipient]": username, "markdown_suggester_activated": "", "_": "", "namespace_login": f"message:{username}"})
+
+
 
 for i in range(1000):
+    count+=1
+    if count == 10:
+        print("Waiting 10 seconds")
+        time.sleep(30)
+        count = 0
     main()
